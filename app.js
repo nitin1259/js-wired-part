@@ -14,7 +14,7 @@ function b() {
 */
 
 // function context and variable environment
-
+/*
 function b() {
   var myVar;
   console.log(myVar);
@@ -30,3 +30,34 @@ var myVar = 1;
 console.log(myVar);
 a();
 console.log(myVar);
+
+*/
+
+// The Scope Chain
+
+/*
+function b() {
+  console.log(myVar);
+}
+
+function a() {
+  var myVar = 2;
+  b();
+}
+
+var myVar = 1;
+a();
+*/
+
+function a() {
+  function b() {
+    console.log(myVar);
+  }
+  var myVar = 2;
+  b();
+}
+
+var myVar = 1;
+a();
+
+//
