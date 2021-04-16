@@ -49,6 +49,7 @@ var myVar = 1;
 a();
 */
 
+/*
 function a() {
   function b() {
     console.log(myVar);
@@ -59,5 +60,28 @@ function a() {
 
 var myVar = 1;
 a();
+*/
 
-//
+// Scope , ES6 and let
+// let -> provide the block scoping
+
+// About Asynchronous callbacks
+function wait3Seconds() {
+  var ms = 3000 + new Date().getTime();
+  while (new Date() < ms) {}
+  console.log("finished wait function");
+}
+
+function clickHandler() {
+  console.log("click event happened!");
+}
+
+// listen the click event
+document.addEventListener("click", clickHandler);
+
+wait3Seconds();
+console.log("finished the global execution");
+
+setTimeout(() => {
+  console.log("in set time out happend!!!");
+}, 2000);
