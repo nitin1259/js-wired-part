@@ -1,3 +1,5 @@
+// hoisting
+/*
 console.log(a); // undefine because of Execution context (creation phase  memory for vars and functions)
 b();
 
@@ -9,3 +11,22 @@ const c = "Welcome to c!!";
 function b() {
   console.log("in function b!!");
 }
+*/
+
+// function context and variable environment
+
+function b() {
+  var myVar;
+  console.log(myVar);
+}
+
+function a() {
+  var myVar = 2;
+  console.log(myVar);
+  b();
+}
+
+var myVar = 1;
+console.log(myVar);
+a();
+console.log(myVar);
