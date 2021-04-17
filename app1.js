@@ -24,7 +24,7 @@ console.log(person["address"]["city"]);
 */
 
 // Objects and object literals
-
+/*
 var person = {
   firstname: "Nitin",
   lastname: "Kumar",
@@ -42,3 +42,21 @@ person.address2 = {
   city: "Bangalore",
 };
 console.log(person);
+*/
+
+// Objects literal and json
+
+var objLiteral = {
+  name: "Kapil",
+  isProgrammer: true,
+};
+
+// converting obj to json
+var objStr = JSON.stringify(objLiteral);
+console.log(objStr);
+
+var jsonStr = '{ "fname" : "Sachin", "age" : "26" }';
+
+// convert json to obj
+var jsonObj = JSON.parse(jsonStr);
+console.log(jsonObj);
