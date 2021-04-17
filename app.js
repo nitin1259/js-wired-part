@@ -66,6 +66,7 @@ a();
 // let -> provide the block scoping
 
 // About Asynchronous callbacks
+/* 
 function wait3Seconds() {
   var ms = 3000 + new Date().getTime();
   while (new Date() < ms) {}
@@ -85,3 +86,27 @@ console.log("finished the global execution");
 setTimeout(() => {
   console.log("in set time out happend!!!");
 }, 2000);
+
+*/
+
+// precedence and associativity
+
+var a = 2,
+  b = 3,
+  c = 4;
+a = b = c;
+console.log(a);
+console.log((b = c));
+
+// coparison operator
+
+console.log(1 < 2 < 3); // this is fine - associativity from left to right
+console.log(3 < 2 < 1); // but how this returns true
+
+console.log(3 < 2 < 1); // = console.log(3 < 2 < 1); and  its equivaliet to console.log( false < 1)
+
+// and when coersion happen like
+console.log(Number(false));
+console.log(Number(true));
+
+// now it becames  --> console.log( false < 1)  --> console.log( 0 < 1)
