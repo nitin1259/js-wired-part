@@ -1,5 +1,5 @@
 // Objects and the dots
-
+/*
 var person = new Object();
 person["firstname"] = "Nitin";
 person["lastname"] = "Kumar";
@@ -21,3 +21,24 @@ console.log(person.address);
 console.log(person.address.street);
 console.log(person.address.state);
 console.log(person["address"]["city"]);
+*/
+
+// Objects and object literals
+
+var person = {
+  firstname: "Nitin",
+  lastname: "Kumar",
+  address: {
+    street: "112, Peter st.",
+    city: "Hyderabad",
+    state: "TS",
+  },
+};
+
+console.log(person["firstname"]);
+
+person.address2 = {
+  street: "11 St Louis st",
+  city: "Bangalore",
+};
+console.log(person);
