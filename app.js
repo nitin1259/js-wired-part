@@ -1,4 +1,4 @@
-// hoisting
+//TODO: hoisting
 /*
 console.log(a); // undefine because of Execution context (creation phase  memory for vars and functions)
 b();
@@ -13,7 +13,7 @@ function b() {
 }
 */
 
-// function context and variable environment
+//TODO: function context and variable environment
 /*
 function b() {
   var myVar;
@@ -33,7 +33,7 @@ console.log(myVar);
 
 */
 
-// The Scope Chain
+//TODO: The Scope Chain
 
 /*
 function b() {
@@ -65,7 +65,7 @@ a();
 // Scope , ES6 and let
 // let -> provide the block scoping
 
-// About Asynchronous callbacks
+//TODO: About Asynchronous callbacks
 /* 
 function wait3Seconds() {
   var ms = 3000 + new Date().getTime();
@@ -89,7 +89,7 @@ setTimeout(() => {
 
 */
 
-// precedence and associativity
+//TODO: precedence and associativity
 /*
 var a = 2,
   b = 3,
@@ -98,7 +98,7 @@ a = b = c;
 console.log(a);
 console.log((b = c));
 
-// coparison operator
+//TODO: coparison operator
 
 console.log(1 < 2 < 3); // this is fine - associativity from left to right
 console.log(3 < 2 < 1); // but how this returns true
@@ -124,7 +124,7 @@ if (a == b) {
   console.log(" Not equal. !!");
 }
 
-// strict equality
+//TODO: strict equality
 if (a === b) {
   console.log(" a is equal to b with strict equality");
 } else {
@@ -133,15 +133,15 @@ if (a === b) {
 
 */
 
-// existance and booleans
-
+//TODO: existance and booleans
+/*
 console.log(Boolean(undefined));
 console.log(Boolean(null));
 console.log(Boolean(""));
 
 var a = 0;
 
-// a goes to internet and get some value;
+//TODO: a goes to internet and get some value;
 
 if (a) {
   console.log("A got something: ", a);
@@ -159,3 +159,15 @@ if (a || a === 0) {
   // here === is more precidence than || so it will check euality of 0 first and then || operator
   console.log(" condition is true!!!");
 }
+*/
+
+//TODO: Default values
+
+function greet(name) {
+  name = name || "<Your name here>"; // coresion is take palace in OR operator
+  console.log("Hello " + name);
+}
+
+greet("Nitin");
+greet();
+greet(0); // exception case
