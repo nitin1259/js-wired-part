@@ -162,12 +162,13 @@ if (a || a === 0) {
 */
 
 //TODO: Default values
-
-function greet(name) {
+/*
+function greetSomeOneWithName(name) {
   name = name || "<Your name here>"; // coresion is take palace in OR operator
   console.log("Hello " + name);
 }
 
-greet("Nitin");
-greet();
-greet(0); // exception case
+greetSomeOneWithName("Nitin");
+greetSomeOneWithName();
+greetSomeOneWithName(0); // exception case which will not upto expectation
+*/
