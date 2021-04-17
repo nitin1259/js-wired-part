@@ -113,6 +113,7 @@ console.log(Number(true));
 
 */
 
+/*
 // another example
 var a = 0;
 var b = false;
@@ -128,4 +129,33 @@ if (a === b) {
   console.log(" a is equal to b with strict equality");
 } else {
   console.log(" Not equal with strict equality operator !!");
+}
+
+*/
+
+// existance and booleans
+
+console.log(Boolean(undefined));
+console.log(Boolean(null));
+console.log(Boolean(""));
+
+var a = 0;
+
+// a goes to internet and get some value;
+
+if (a) {
+  console.log("A got something: ", a);
+} else {
+  console.log(" a is looked and because of coersion you are here !!");
+}
+
+// another example
+
+a = 0;
+// and
+console.log(Boolean(0));
+
+if (a || a === 0) {
+  // here === is more precidence than || so it will check euality of 0 first and then || operator
+  console.log(" condition is true!!!");
 }
