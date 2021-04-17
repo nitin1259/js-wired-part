@@ -90,7 +90,7 @@ setTimeout(() => {
 */
 
 // precedence and associativity
-
+/*
 var a = 2,
   b = 3,
   c = 4;
@@ -110,3 +110,22 @@ console.log(Number(false));
 console.log(Number(true));
 
 // now it becames  --> console.log( false < 1)  --> console.log( 0 < 1)
+
+*/
+
+// another example
+var a = 0;
+var b = false;
+
+if (a == b) {
+  console.log(" a is equal to b with coersion princple");
+} else {
+  console.log(" Not equal. !!");
+}
+
+// strict equality
+if (a === b) {
+  console.log(" a is equal to b with strict equality");
+} else {
+  console.log(" Not equal with strict equality operator !!");
+}
