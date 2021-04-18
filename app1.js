@@ -63,7 +63,7 @@ console.log(jsonObj);
 */
 
 // objects and function
-
+/*
 function greet() {
   console.log("Hello !!");
 }
@@ -73,3 +73,31 @@ greet.language = "english";
 console.log(greet);
 console.log(greet.language);
 console.log(typeof greet);
+*/
+
+// function statement and function expression
+
+//example
+var a = 3; // this is an expression
+a === 3; // this is an expression
+
+if (a === 3) {
+} // this is an statement
+
+greet(); // this can work here
+
+anonymousGreet(); // this will not work because of hoisting and Execution context creation phase only create variable and assign undefine to it
+
+// function statement
+function greet() {
+  console.log("Hello from greet !!!");
+}
+
+greet();
+
+// this is funcgtion expression
+var anonymousGreet = function () {
+  console.log("hello from ananymous Greet !!!");
+};
+
+anonymousGreet(); // this will work here
