@@ -104,7 +104,7 @@ anonymousGreet(); // this will work here
 */
 
 // by Value and by reference
-
+/*
 //by value
 var a = "Kpail";
 var b;
@@ -142,3 +142,71 @@ c = { greeting: "Hi" }; // here your are creating new object and assigning the n
 
 console.log("c: " + c.greeting);
 console.log("d: " + d.greeting);
+*/
+
+// Objects, functions and 'this'
+
+function a() {
+  console.log(this);
+  this.someVariable = "i_am_a_var";
+}
+
+a();
+console.log(someVariable);
+
+var b = function () {
+  console.log(this);
+};
+
+b();
+
+var c = {
+  name: "A c object",
+  log: function () {
+    this.name = "Updated the c object";
+    this.isAvailable = true;
+    console.log(this);
+  },
+};
+
+c.log();
+
+var d = {
+  name: "A d object",
+  log: function () {
+    this.name = "Updated the d object";
+    this.isAvailable = true;
+    console.log(this);
+
+    var setName = function (newName) {
+      this.name = newName; // here is the problem as this is points to window object
+      console.log(this);
+    };
+
+    setName("Again Updated, d object");
+    console.log(this);
+  },
+};
+
+d.log();
+
+// Work around or solution to the d object problem
+var e = {
+  name: "A e object",
+  log: function () {
+    var self = this;
+    this.name = "Updated the e object";
+    self.isAvailable = true;
+    console.log(self);
+
+    var setName = function (newName) {
+      self.name = newName; // problem's solution is with assign this to self
+      //   console.log(self);
+    };
+
+    setName("Again Updated, e object");
+    console.log(self);
+  },
+};
+
+e.log();
