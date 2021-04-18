@@ -45,7 +45,7 @@ console.log(person);
 */
 
 // Objects literal and json
-
+/*
 var objLiteral = {
   name: "Kapil",
   isProgrammer: true,
@@ -60,3 +60,16 @@ var jsonStr = '{ "fname" : "Sachin", "age" : "26" }';
 // convert json to obj
 var jsonObj = JSON.parse(jsonStr);
 console.log(jsonObj);
+*/
+
+// objects and function
+
+function greet() {
+  console.log("Hello !!");
+}
+
+greet.language = "english";
+
+console.log(greet);
+console.log(greet.language);
+console.log(typeof greet);
