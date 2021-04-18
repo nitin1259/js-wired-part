@@ -213,7 +213,7 @@ e.log();
 */
 
 // arrays
-
+/*
 var arr1 = new Array();
 arr1.push(1);
 arr1.push("kapil");
@@ -231,3 +231,52 @@ var arr2 = [
 ];
 console.log(arr2);
 arr2[3](arr2[2].name);
+*/
+
+// arguments and spread
+
+function greet(firstName, lastName, language) {
+  var language = language || "en"; // another way of setting default instead of function parameter
+
+  if (arguments.length === 0) {
+    console.log("No argument passed");
+    return;
+  }
+  console.log(arguments);
+  console.log(firstName);
+  console.log(lastName);
+  console.log(language);
+
+  if (arguments.length == 5) {
+    console.log("forth argument: " + arguments[3]);
+    console.log("next argument: " + arguments[4]);
+  }
+
+  console.log("--------------");
+}
+
+function greetAnotherWayofArgument(firstName, lastName, language, ...others) {
+  var language = language || "en"; // another way of setting default instead of function parameter
+
+  if (arguments.length === 0) {
+    console.log("No argument passed");
+    return;
+  }
+  console.log(arguments);
+  console.log(firstName);
+  console.log(lastName);
+  console.log(language);
+
+  console.log("others: ", others);
+
+  console.log("--------------");
+}
+
+greet();
+greet("kapil");
+greet("kapil", "Sharma");
+greet("kapil", "Sharma", "es");
+
+// greet("kapil", "Sharma", "es", "mumbai", "112 state st.");
+
+greetAnotherWayofArgument("kapil", "Sharma", "es", "mumbai", "112 state st.");
