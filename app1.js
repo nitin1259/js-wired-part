@@ -234,7 +234,7 @@ arr2[3](arr2[2].name);
 */
 
 // arguments and spread
-
+/*
 function greet(firstName, lastName, language) {
   var language = language || "en"; // another way of setting default instead of function parameter
 
@@ -280,3 +280,36 @@ greet("kapil", "Sharma", "es");
 // greet("kapil", "Sharma", "es", "mumbai", "112 state st.");
 
 greetAnotherWayofArgument("kapil", "Sharma", "es", "mumbai", "112 state st.");
+*/
+
+// IIFE's immediately invoded function expression.
+
+// function statement
+function greet(name) {
+  console.log("hello", name);
+}
+
+greet("kapil");
+
+// function expression
+var greetFunc = function (name) {
+  console.log("Hola", name);
+};
+
+greetFunc("Kapil");
+
+// using an Immediate invoking funcrion expression
+var greeting = (function (name) {
+  console.log("in IIFE");
+  return "Hi " + name;
+})("Saambha");
+
+console.log(greeting);
+
+var firstName = "Sachin";
+
+// this is inline IIFE's more usable in almost frameworks
+(function (name) {
+  var greeetingText = "In IIFE: Swagatam";
+  console.log(greeetingText + " " + name);
+})(firstName);
