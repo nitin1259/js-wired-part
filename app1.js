@@ -145,7 +145,7 @@ console.log("d: " + d.greeting);
 */
 
 // Objects, functions and 'this'
-
+/*
 function a() {
   console.log(this);
   this.someVariable = "i_am_a_var";
@@ -210,3 +210,24 @@ var e = {
 };
 
 e.log();
+*/
+
+// arrays
+
+var arr1 = new Array();
+arr1.push(1);
+arr1.push("kapil");
+console.log(arr1);
+
+// array literals
+var arr2 = [
+  1,
+  true,
+  { name: "Nitin", age: 23 },
+  function (name) {
+    console.log("Im in arrays function, Hello:", name);
+  },
+  "Departmentals",
+];
+console.log(arr2);
+arr2[3](arr2[2].name);
