@@ -76,7 +76,7 @@ console.log(typeof greet);
 */
 
 // function statement and function expression
-
+/*
 //example
 var a = 3; // this is an expression
 a === 3; // this is an expression
@@ -86,7 +86,7 @@ if (a === 3) {
 
 greet(); // this can work here
 
-anonymousGreet(); // this will not work because of hoisting and Execution context creation phase only create variable and assign undefine to it
+// anonymousGreet(); // this will not work because of hoisting and Execution context creation phase only create variable and assign undefine to it
 
 // function statement
 function greet() {
@@ -101,3 +101,44 @@ var anonymousGreet = function () {
 };
 
 anonymousGreet(); // this will work here
+*/
+
+// by Value and by reference
+
+//by value
+var a = "Kpail";
+var b;
+b = a;
+
+a = "sachin";
+console.log("a: " + a);
+console.log("b: " + b);
+
+// by reference
+var c = {
+  greeting: "English",
+};
+var d;
+d = c;
+
+c.greeting = "Hola";
+
+console.log("c: " + c.greeting);
+console.log("d: " + d.greeting);
+
+// by reference (even as parameter) works for ojbects and functions are object too.
+
+function changGreet(ojb) {
+  // console.log(ojb);
+  ojb.greeting = "Hey there";
+}
+
+changGreet(d);
+
+console.log("c: " + c.greeting);
+console.log("d: " + d.greeting);
+
+c = { greeting: "Hi" }; // here your are creating new object and assigning the new value
+
+console.log("c: " + c.greeting);
+console.log("d: " + d.greeting);
