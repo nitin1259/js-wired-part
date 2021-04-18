@@ -316,7 +316,7 @@ var firstName = "Sachin";
 */
 
 // IIFE in popular frameworks and safe coding
-
+/*
 var greeting = "Hola"; // this is the global variable
 
 (function (global, name) {
@@ -328,3 +328,81 @@ var greeting = "Hola"; // this is the global variable
 })(window, "Foo");
 
 console.log(greeting);
+*/
+
+// Closure
+
+function greet(whatToSay) {
+  return function (name) {
+    console.log(whatToSay + " " + name);
+  };
+}
+
+greet("Hi")("Jahan panah");
+//or
+var callFunc = greet("Hello");
+callFunc("Ajemo sahanshah");
+
+// another example
+
+function buildFunctions() {
+  var arr = [];
+
+  for (var i = 0; i < 3; i++) {
+    arr.push(function () {
+      console.log(i);
+    });
+  }
+
+  return arr;
+}
+
+var bf = buildFunctions();
+bf[0](); // print 3
+bf[1](); // print 3
+bf[2](); // print 3
+
+// how can we fix the above closure example
+// this is with es6
+function buildFunctions1() {
+  var arr = [];
+
+  for (let i = 0; i < 3; i++) {
+    // what happend with let variable that's created is scoped to the block inside these curly braces. So every time the for loop runs there will be a new variable in memory. And it will be segmented in the side of memory of this execution context so that when this function is called, it would be pointing each time at a different spot within that memory. These are subsegmented essentially as separately scoped variables.
+    arr.push(function () {
+      console.log(i);
+    });
+  }
+
+  return arr;
+}
+
+var bf1 = buildFunctions1();
+bf1[0]();
+bf1[1]();
+bf1[2]();
+
+// how can we fix the above closure example
+// this is with old js
+function buildFunctions2() {
+  var arr = [];
+
+  for (var i = 0; i < 3; i++) {
+    // we can call the function with IIFE
+    arr.push(
+      (function (j) {
+        // what it will do it will create a new execution context every time for each array element
+        return function () {
+          console.log(j);
+        };
+      })(i)
+    );
+  }
+
+  return arr;
+}
+
+var bf2 = buildFunctions2();
+bf2[0]();
+bf2[1]();
+bf2[2]();
