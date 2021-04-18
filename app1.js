@@ -283,7 +283,7 @@ greetAnotherWayofArgument("kapil", "Sharma", "es", "mumbai", "112 state st.");
 */
 
 // IIFE's immediately invoded function expression.
-
+/*
 // function statement
 function greet(name) {
   console.log("hello", name);
@@ -313,3 +313,18 @@ var firstName = "Sachin";
   var greeetingText = "In IIFE: Swagatam";
   console.log(greeetingText + " " + name);
 })(firstName);
+*/
+
+// IIFE in popular frameworks and safe coding
+
+var greeting = "Hola"; // this is the global variable
+
+(function (global, name) {
+  var greeting = "Hello";
+
+  global.greeting = "Hi !!"; // mutating the greeting value in global object ie window
+
+  console.log(greeting + " " + name);
+})(window, "Foo");
+
+console.log(greeting);
