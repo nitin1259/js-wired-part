@@ -444,7 +444,7 @@ sayHiLater();
 */
 
 // call, apply and bind
-
+/*
 var person = {
   fname: "Rose",
   lname: "Marlo",
@@ -489,10 +489,8 @@ logName.call(person, "gr", "fr");
 // apply is simalar to call but only difference is the it will pass arguments as an array
 logName.apply(person, ["in_gr", "in_fr"]);
 
-/*
-Apply and call invoke the function and let you set up the this key word and then pass the other parameters if you want in two different ways.
-And bind creates a copy of the function, let's you set up what the this key word should mean and also let's you set default parameters, permanent preset parameters if you want.
-*/
+// Apply and call invoke the function and let you set up the this key word and then pass the other parameters if you want in two different ways. And bind creates a copy of the function, let's you set up what the this key word should mean and also let's you set default parameters, permanent preset parameters if you want.
+
 
 // How and where we are apply these thing in real life
 
@@ -514,17 +512,57 @@ function multiply(a, b) {
 }
 
 var multiplyBy2 = multiply.bind(this, 2); // this is equivalent to ->
-/* 
-    function multiplyBy2(b){
-        var a = 2;
-        return a*b;
-    }
 
-*/
+function multiplyByTwo(b){
+    var a = 2;
+    return a*b;
+}
+
 
 var result = multiplyBy2(5);
 console.log(result);
 
 // similar to that is
-var multipleby3 = multiply.bind(this, 3);
+var multipleby3 = multiply.bind(this, 3); // this is like pre-setting of parameter with bind
 console.log(multipleby3(5));
+
+*/
+
+// functional programming
+
+function mapForEach(arr, fn) {
+  var newArr = [];
+  for (var i = 0; i < arr.length; i++) {
+    newArr.push(fn(arr[i]));
+  }
+
+  return newArr;
+}
+
+var arr1 = [1, 2, 3];
+console.log(arr1);
+
+var arr2 = mapForEach(arr1, function (item) {
+  return item * 2;
+});
+console.log(arr2);
+
+var arr3 = mapForEach(arr1, function (item) {
+  return item > 2;
+});
+console.log(arr3);
+
+var checkPastLimit = function (limiter, item) {
+  return item > limiter;
+};
+var arr4 = mapForEach(arr1, checkPastLimit.bind(this, 1));
+console.log(arr4);
+
+var checkPastLimitSimplified = function (limiter) {
+  return function (limiter, item) {
+    return item > limiter;
+  }.bind(this, limiter);
+};
+
+var arr5 = mapForEach(arr1, checkPastLimitSimplified(1));
+console.log(arr5);
