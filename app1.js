@@ -410,7 +410,7 @@ bf2[2]();
 */
 
 // another exaples of closures in frameworks
-
+/*
 function makeGreeting(language) {
   return function (fname, lname) {
     if (language === "en") {
@@ -428,3 +428,16 @@ var spanishGreet = makeGreeting("es");
 
 englishGreet("Kapil", "Sharma");
 spanishGreet("Rohit", "Bajwa");
+*/
+
+// closures and callbacks
+
+function sayHiLater() {
+  var greetText = "Hi";
+
+  setTimeout(() => {
+    console.log(greetText, "from timeout");
+  }, 3000);
+}
+
+sayHiLater();
