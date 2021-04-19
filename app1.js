@@ -431,7 +431,7 @@ spanishGreet("Rohit", "Bajwa");
 */
 
 // closures and callbacks
-
+/*
 function sayHiLater() {
   var greetText = "Hi";
 
@@ -441,3 +441,90 @@ function sayHiLater() {
 }
 
 sayHiLater();
+*/
+
+// call, apply and bind
+
+var person = {
+  fname: "Rose",
+  lname: "Marlo",
+  getFullName: function () {
+    return this.fname + " " + this.lname;
+  },
+};
+
+var logName = function (lang1, lang2) {
+  console.log(this.getFullName());
+  console.log("Arfguments: " + lang1 + " " + lang2);
+  console.log("------------------");
+};
+
+// logName(); // error as logname contain this as global object and dont have getFullName
+
+// lets bind logName
+var logPersonName = logName.bind(person); // so bind will return a copy of the function with include person as this
+
+logPersonName();
+logPersonName("en", "fr");
+
+// bind the function on fly with person object
+var logName1 = function (lang1, lang2) {
+  console.log(this.getFullName());
+  console.log("Arfguments: " + lang1 + " " + lang2);
+  console.log("------------------");
+}.bind(person);
+
+logName1("sp", "en");
+
+// call will not copy the function as bind do but immediately invoke it
+logName.call(person, "gr", "fr");
+
+// or on fly can do the call like bind
+(function (lang1, lang2) {
+  console.log(this.getFullName());
+  console.log("Arfguments: " + lang1 + " " + lang2);
+  console.log("------------------");
+}.call(person, "en", "jp"));
+
+// apply is simalar to call but only difference is the it will pass arguments as an array
+logName.apply(person, ["in_gr", "in_fr"]);
+
+/*
+Apply and call invoke the function and let you set up the this key word and then pass the other parameters if you want in two different ways.
+And bind creates a copy of the function, let's you set up what the this key word should mean and also let's you set default parameters, permanent preset parameters if you want.
+*/
+
+// How and where we are apply these thing in real life
+
+// 1. function borrowing
+var person2 = {
+  fname: "Sachin",
+  lname: "Tomar",
+};
+
+const fullName2 = person.getFullName.bind(person2);
+console.log(fullName2());
+// or
+console.log(person.getFullName.call(person2)); // this looks like I borrowed a function from persion to person2
+
+// function currying -> creating a copy of function but with some present parameters
+
+function multiply(a, b) {
+  return a * b;
+}
+
+var multiplyBy2 = multiply.bind(this, 2); // this is equivalent to ->
+/* 
+    function multiplyBy2(b){
+        var a = 2;
+        return a*b;
+    }
+
+*/
+
+var result = multiplyBy2(5);
+console.log(result);
+
+// similar to that is
+var multipleby3 = multiply.bind(this, 3);
+console.log(multipleby3(5));
