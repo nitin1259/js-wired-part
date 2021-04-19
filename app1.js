@@ -331,7 +331,7 @@ console.log(greeting);
 */
 
 // Closure
-
+/*
 function greet(whatToSay) {
   return function (name) {
     console.log(whatToSay + " " + name);
@@ -406,3 +406,25 @@ var bf2 = buildFunctions2();
 bf2[0]();
 bf2[1]();
 bf2[2]();
+
+*/
+
+// another exaples of closures in frameworks
+
+function makeGreeting(language) {
+  return function (fname, lname) {
+    if (language === "en") {
+      console.log("Hello", fname, lname);
+    }
+
+    if (language === "es") {
+      console.log("Hola", fname, lname);
+    }
+  };
+}
+
+var englishGreet = makeGreeting("en");
+var spanishGreet = makeGreeting("es");
+
+englishGreet("Kapil", "Sharma");
+spanishGreet("Rohit", "Bajwa");
