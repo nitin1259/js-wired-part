@@ -38,3 +38,34 @@ function Person3(fname, lname) {
 
 var jane = new Person3("Jane", "Doe");
 console.log(jane);
+
+console.log("--------- Function constructor and prototypes--------");
+
+function Person4(fname, lname) {
+  console.log(this);
+  this.fname = fname;
+  this.lname = lname;
+
+  console.log("This function has been invoked");
+}
+
+var nik = new Person4("Nik", "Paul");
+console.log(nik);
+// console.log(nik.getFormalName()); // not working here as the prototype property for getFormalName is not defined here
+
+Person4.prototype.getFullName = function () {
+  return this.fname + " " + this.lname;
+};
+
+var vik = new Person4("Vikram", "Jeena");
+console.log(vik);
+console.log(vik.getFullName());
+
+// why are we adding method to the prototye instead inside a function constructor
+// from a efficiency standpoint, it's better to put your methods on the prototype because they only need one copy to be used.
+
+Person4.prototype.getFormalName = function () {
+  return this.lname + ", " + this.fname;
+};
+
+console.log(nik.getFormalName());
