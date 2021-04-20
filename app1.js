@@ -529,7 +529,7 @@ console.log(multipleby3(5));
 */
 
 // functional programming
-
+/*
 function mapForEach(arr, fn) {
   var newArr = [];
   for (var i = 0; i < arr.length; i++) {
@@ -566,3 +566,38 @@ var checkPastLimitSimplified = function (limiter) {
 
 var arr5 = mapForEach(arr1, checkPastLimitSimplified(1));
 console.log(arr5);
+*/
+
+// inheritance
+// simple defination of inheritance is - "one object get access to the property and method of another object"
+
+// prototype chain
+
+var person = {
+  fname: "default",
+  lname: "default",
+  getFullName: function () {
+    return this.fname + " " + this.lname;
+  },
+};
+
+var John = {
+  fname: "John",
+  lname: "Doe",
+};
+
+// console.log(John.getFullName());
+
+// dont do this ever!!! ... this only for demo purpose
+John.__proto__ = person;
+
+console.log(John.getFullName()); // When this function is invoked, the execution context when it creates the this variable knows what object originally we're talking about. So this does not refer to person, it refers to John,
+console.log(John.fname);
+
+jane = {
+  fname: "Jane",
+};
+
+jane.__proto__ = person;
+console.log(jane.getFullName());
+console.log(jane.lname);
